@@ -1,4 +1,7 @@
 #include "rando.h"
+#include <cmath>
+#include <algorithm>
+using namespace std;
 //#include <stdlib.h>
 
 
@@ -19,7 +22,12 @@ bool Rando::shouldWorry(bool childASmile, bool childBSmile, bool childCSmile)
 **/
 bool Rando::isDivisbleBy(int first, int second)
 {
-	return false;
+  if(first % second == 0)
+    return true;
+  else if(second % first == 0)
+    return true;
+  else
+	  return false;
 }
 
 /**
@@ -29,7 +37,21 @@ bool Rando::isDivisbleBy(int first, int second)
 **/
 bool Rando::isPrime(int num)
 {
-	return true;
+  if(num < 2)
+    return false;
+  else if(num == 2 || num == 3 || num == 5)
+    return true;
+  else 
+  {
+    bool is_prime = true;
+    for(int i = 3; i <= sqrt(num); i += 2)
+    {
+      if(num % i == 0)
+        return false;
+    }
+    return is_prime;
+  }
+  return false;
 }
 
 /**
@@ -38,5 +60,5 @@ bool Rando::isPrime(int num)
 **/
 int Rando::nearestToZero(int a, int b)
 {
-	return 0;
+  return min(abs(a),abs(b));
 }

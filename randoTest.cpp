@@ -28,3 +28,59 @@ TEST(RandoTest, allChildrenSmile)
 	Rando rando;
 	ASSERT_TRUE( rando.shouldWorry(true,true,true) );
 }
+
+TEST(RandoTest, oneChildeSmiles)
+{
+  Rando rando;
+  ASSERT_TRUE( rando.shouldWorry(false,false,true) );
+	ASSERT_TRUE( rando.shouldWorry(false,true,false) );
+	ASSERT_TRUE( rando.shouldWorry(true,false,false) );
+}
+
+TEST(RandoTest, isDivisbleBy)
+{
+  Rando rando;
+  ASSERT_TRUE( rando.isDivisbleBy(12,1) );
+  ASSERT_FALSE( rando.isDivisbleBy(11,2) );
+  ASSERT_FALSE( rando.isDivisbleBy(10,3) );
+  ASSERT_FALSE( rando.isDivisbleBy(9,4) );
+  ASSERT_FALSE( rando.isDivisbleBy(8,5) );
+  ASSERT_FALSE( rando.isDivisbleBy(7,6) );
+  ASSERT_FALSE( rando.isDivisbleBy(6,7) );
+  ASSERT_FALSE( rando.isDivisbleBy(5,8) );
+  ASSERT_FALSE( rando.isDivisbleBy(4,9) );
+  ASSERT_FALSE( rando.isDivisbleBy(3,10) );
+  ASSERT_FALSE( rando.isDivisbleBy(2,11) );
+  ASSERT_TRUE( rando.isDivisbleBy(1,12) );
+  ASSERT_TRUE( rando.isDivisbleBy(8,8) );
+  ASSERT_TRUE( rando.isDivisbleBy(8,2) );
+  ASSERT_TRUE( rando.isDivisbleBy(2,8) );
+}
+
+TEST(RandoTest, isPrime)
+{
+  Rando rando;
+  ASSERT_TRUE( rando.isPrime(2) );
+  ASSERT_TRUE( rando.isPrime(3) );
+  ASSERT_TRUE( rando.isPrime(5) );
+  ASSERT_TRUE( rando.isPrime(7) );
+  ASSERT_TRUE( rando.isPrime(11) );
+  ASSERT_TRUE( rando.isPrime(13) );
+  ASSERT_TRUE( rando.isPrime(17) );
+  ASSERT_TRUE( rando.isPrime(19) );
+  ASSERT_TRUE( rando.isPrime(23) );
+}
+
+TEST(RandoTest, isNotPrime)
+{
+  Rando rando;
+  ASSERT_FALSE( rando.isPrime(0) );
+  ASSERT_FALSE( rando.isPrime(1) );
+  ASSERT_FALSE( rando.isPrime(6) );
+  ASSERT_FALSE( rando.isPrime(21) );
+  ASSERT_FALSE( rando.isPrime(12) );
+  ASSERT_FALSE( rando.isPrime(-30) );
+  ASSERT_FALSE( rando.isPrime(2*2*2) );
+  ASSERT_FALSE( rando.isPrime(1000) );
+  ASSERT_FALSE( rando.isPrime(14) );
+}
