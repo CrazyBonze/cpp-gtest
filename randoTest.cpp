@@ -57,6 +57,25 @@ TEST(RandoTest, isDivisbleBy)
   ASSERT_TRUE( rando.isDivisbleBy(2,8) );
 }
 
+TEST(RandoTest, devideByZero)
+{
+  Rando rando;
+  bool exceptionThrown = false;
+  try
+  {
+    ASSERT_TRUE( rando.isDivisbleBy(0,8) );
+    ASSERT_TRUE( rando.isDivisbleBy(2,0) );
+    ASSERT_TRUE( rando.isDivisbleBy(0,0) );
+  }catch(int ex)
+  {
+    if(ex == -1)
+    {
+      exceptionThrown = true;
+    }
+  }
+  ASSERT_TRUE(exceptionThrown);
+}
+
 TEST(RandoTest, isPrime)
 {
   Rando rando;
