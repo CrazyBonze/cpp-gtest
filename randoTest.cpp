@@ -76,11 +76,14 @@ TEST(RandoTest, isNotPrime)
   Rando rando;
   ASSERT_FALSE( rando.isPrime(0) );
   ASSERT_FALSE( rando.isPrime(1) );
+  ASSERT_FALSE( rando.isPrime(4) );
   ASSERT_FALSE( rando.isPrime(6) );
+  ASSERT_FALSE( rando.isPrime(8) );
+  ASSERT_FALSE( rando.isPrime(9) );
   ASSERT_FALSE( rando.isPrime(21) );
   ASSERT_FALSE( rando.isPrime(12) );
   ASSERT_FALSE( rando.isPrime(-30) );
-  ASSERT_FALSE( rando.isPrime(2*2*2) );
+  ASSERT_FALSE( rando.isPrime(-1000) );
   ASSERT_FALSE( rando.isPrime(1000) );
   ASSERT_FALSE( rando.isPrime(14) );
 }

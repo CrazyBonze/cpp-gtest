@@ -41,6 +41,8 @@ bool Rando::isPrime(int num)
     return false;
   else if(num == 2 || num == 3 || num == 5)
     return true;
+  else if(num % 2 == 0)
+    return false;
   else 
   {
     bool is_prime = true;
