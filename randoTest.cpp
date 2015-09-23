@@ -87,3 +87,29 @@ TEST(RandoTest, isNotPrime)
   ASSERT_FALSE( rando.isPrime(1000) );
   ASSERT_FALSE( rando.isPrime(14) );
 }
+
+TEST(RandoTest, nearestToZero)
+{
+  Rando rando;
+  ASSERT_TRUE( 1 == rando.nearestToZero(5,1) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(1,1) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(1,5) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(-5,1) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(5,-1) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(-1,5) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(-5,-1) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(1,-1) );
+}
+
+TEST(RandoTest, atZero)
+{
+  Rando rando;
+  ASSERT_TRUE( 0 == rando.nearestToZero(0,0) );
+  ASSERT_TRUE( 1 == rando.nearestToZero(0,1) );
+  ASSERT_TRUE( 5 == rando.nearestToZero(0,5) );
+  ASSERT_TRUE( -5 == rando.nearestToZero(-5,0) );
+  ASSERT_TRUE( -1 == rando.nearestToZero(0,-1) );
+  ASSERT_TRUE( -1 == rando.nearestToZero(-1,0) );
+  ASSERT_TRUE( -1 == rando.nearestToZero(0*0,-1) );
+  ASSERT_TRUE( 0 == rando.nearestToZero(1-1,5-5) );
+}
