@@ -51,7 +51,7 @@ bool Rando::isPrime(int num)
     }
     return is_prime;
   }
-  return false;
+  return false;//catchall
 }
 
 /**
@@ -60,5 +60,11 @@ bool Rando::isPrime(int num)
 **/
 int Rando::nearestToZero(int a, int b)
 {
+  if(a == 0 && b == 0)
+    return 0;
+  if(a == 0)
+    return b;
+  if(b == 0)
+    return a;
   return min(abs(a),abs(b));
 }
